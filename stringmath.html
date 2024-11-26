@@ -1,0 +1,65 @@
+<html>
+<head></head>
+<body>
+<h1><u>JavaScript String and Math Functions</u></h1>
+<h2>String Functions</h2>
+<p> String Length of 'Welcome to my world': <span id="stringLength"></span></p>
+
+    <p> toUpperCase of "welcome": <span id="toUpper"></span></p>
+
+    <p> does Welcome to my world includes World  : <span id="includes"></span></p>
+
+    <p> charAt first position of Welcome: <span id="charAt"></span></p>
+
+    <p> slice first five letters of Welcome to my world:<span id="slice"></span></p>
+
+ 
+
+    <h2><u>Math Functions</u></h2>
+
+    <p>1. Math.round of 4.6: <span id="round"></span></p>
+
+    <p>2. Math.random:<span id="random"></span></p>
+
+    <p>3. Math.sqrt of 25:<span id="sqrt"></span></p>
+
+    <p>4. Math.max: maximum value in(10, 20, 5, 40):<span id="max"></span></p>
+
+    <p>5. Math.min: minimum value in(10, 20, 5, 40):<span id="min"></span></p>
+
+ 
+
+    <script>
+
+     
+
+        document.getElementById('stringLength').innerText = "Welcome to my world".length; 
+
+        document.getElementById('toUpper').innerText = "welcome".toUpperCase(); 
+
+        document.getElementById('includes').innerText = "Welcome to my world".includes("world"); 
+
+        document.getElementById('charAt').innerText = "Welcome".charAt(1); 
+
+        document.getElementById('slice').innerText = "Welcome to my world".slice(0, 5);
+
+ 
+
+
+        document.getElementById('round').innerText = Math.round(4.6); 
+
+        document.getElementById('random').innerText = Math.random();
+
+        document.getElementById('sqrt').innerText = Math.sqrt(25); 
+
+        document.getElementById('max').innerText = Math.max(10, 20, 5, 40);
+
+        document.getElementById('min').innerText = Math.min(10, 20, 5, 40);
+
+    </script>
+
+ 
+
+</body>
+
+</html>
