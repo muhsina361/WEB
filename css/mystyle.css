@@ -1,0 +1,36 @@
+
+  
+
+	body{
+
+		border:5px solid black;
+
+		  margin-top:800px;
+
+		   margin-left:15px;
+
+		margin-right:1250px;
+
+		margin-bottam:700px;
+
+		background:linen;
+
+}
+
+	
+
+h1{
+
+	color:black;
+
+	text-align:center;
+
+	font_size:12px;
+
+}
+
+h3,p{
+
+          padding:30px;
+
+}
