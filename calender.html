@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calendar Generator</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple Calendar Generator</h1>
+    </header>
+    
+    <main>
+        <p>Enter a year to generate the calendar:</p>
+        <input type="number" id="yearInput" placeholder="Enter year" required>
+        <button onclick="generateCalendar()">Generate Calendar</button>
+
+        <div id="calendarContainer"></div>
+    </main>
+
+    <script>
+        function generateCalendar() {
+            const year = document.getElementById('yearInput').value;
+            if (!year || isNaN(year) || year < 1) {
+                alert("Please enter a valid year.");
+                return;
+            }
+            
+            const calendarContainer = document.getElementById('calendarContainer');
+            calendarContainer.innerHTML = '';
+
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+            for (let month = 0; month < 12; month++) {
+                const table = document.createElement('table');
+                table.innerHTML = `<caption>${months[month]} ${year}</caption>
+                                   <thead>
+                                       <tr>
+                                           <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+                                       </tr>
+                                   </thead>`;
+                
+                const tbody = document.createElement('tbody');
+                const firstDay = new Date(year, month, 1).getDay();
+                let date = 1;
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                for (let i = 0; i < 6; i++) {
+                    const row = document.createElement('tr');
+                    for (let j = 0; j < 7; j++) {
+                        const cell = document.createElement('td');
+                        if (i === 0 && j < firstDay) {
+                            cell.innerText = "";
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            cell.innerText = date;
+                            date++;
+                        }
+                        row.appendChild(cell);
+                    }
+                    tbody.appendChild(row);
+                }
+                table.appendChild(tbody);
+                calendarContainer.appendChild(table);
+            }
+        }
+    </script>
+</body>
+</html>
